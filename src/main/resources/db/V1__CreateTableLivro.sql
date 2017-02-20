@@ -3,5 +3,9 @@ CREATE TABLE IF NOT EXISTS livro (
 	nome text,
 	autor text,
 	descricao text,
+	releaseDate DATE,
+	photoUrl text,
+	isbn text,
+	year text,
 	PRIMARY KEY( id )
 );
