@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>teste</title>
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+</head>
+<body>
+
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/ng-file-upload/ng-file-upload.js"></script>
+<script src="inserir.js"></script>
+
+<!--[if IE]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="container" ng-app="biblioteca">
+    <div class="header">
+        <ul class="nav nav-pills pull-right">
+            <li class="active">
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+            <li>
+                <a href="inserir.html">Inserir</a>
+            </li>
+        </ul>
+        <h3 class="text-muted">teste</h3>
+    </div>
+
+    <div ng-controller="crudController">
+        <label> Nome: </label>
+        <input type="text" class="form-control" ng-model="livro.nome">
+
+        <label> Autor: </label>
+        <input type="text" class="form-control" ng-model="livro.autor">
+
+        <label> Descrição: </label>
+        <input type="text" class="form-control" ng-model="livro.descricao">
+
+        <label> Release Date: </label>
+        <input type="date" data-date="" data-date-format="DD MMMM YYYY" ng-model="livro.releasedate">
+
+        <br>
+        <div class="form-group">
+            <label class="control-label" for="field_imagem">Imagem: (Tamanho Máximo 2MB)</label>
+            <div class="input-group">
+                <div id="field_imagem" ng-show="file != undefined">
+                    <b>Nome:</b> {{ file.name }} <br/>
+                    <b>Tamanho:</b> {{ (file.size / 1048576).toFixed(2)}}MB <br/>
+                </div>
+                <button class="button" ngf-select ng-model="file" name="imagem" ngf-pattern="'image/*'"
+                        accept="image/*" ngf-max-size="2MB">
+                    Selecione Imagem
+                </button>
+            </div>
+        </div>
+
+        <label> ISBN: </label>
+        <input type="text" class="form-control" ng-model="livro.isbn">
+
+        <label> Ano: </label>
+        <input type="text" class="form-control" ng-model="livro.year">
+
+        <button ng-click="inserir()"> Inserir</button>
+    </div>
+
+    <div class="footer">
+        <p>♥ from the Yeoman team</p>
+    </div>
+</div>
+
+</body>
+</html>
