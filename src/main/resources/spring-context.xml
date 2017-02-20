@@ -1,0 +1,5 @@
+<beans>
+    <bean name="livroService" class="com.example.LivroService"/>
+
+    <bean name="livroRepository" class="com.example.LivroRepository"/>
+</beans>
